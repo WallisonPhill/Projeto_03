@@ -1,0 +1,197 @@
+*{/*Sempre começar o CSS com essas propriedades*/
+  box-sizing: border-box; /*Estou dizendo que quero que o padding e margens sejam contadas juntas*/
+  margin: 0;
+  padding: 0;
+}
+body, input, select, textarea{ /*Estou declarando propriedades universais, coloquei direto neles por garantia*/
+  font-family: 'Poppins', sans-serif;
+}
+body{ 
+  background: #E5E5E5;
+}
+Body::before{ /*Essa propriedade insere um conteúdo html pelo ccs, nesse caso, estou inserindo um header*/
+  content: ''; /*É OBRIGATÓRIO colocar um conteúdo, mesmo que seja vazio*/
+  width: 100%;
+  height: 368px;
+
+  position: absolute; /*A position absolute é usada pra dizer que vai sobrepor o conteúdo...*/
+  top: 0;             /*...usei para nao empurrar o conteudo pra  baixo.*/                                            
+  left: 0; /*Usei o Left e top para garantir a posição no local que eu quero (acima e esquerda)*/
+  z-index: -1;/*Usei o index para jogar o quadro pra trás, funciona como uma sobreposição de camadas, começa no 1(frente)*/
+  background: #121214;
+}
+.page{
+  width: 736px;
+  margin: auto; /*alinhar tudo ao centro*/
+}
+header{ /*Vai ficar à esquerda em relação ao page, pois as margens laterais estão zeradas*/
+  width: 319px;
+  margin-top: 74px;
+}
+header h1{
+  font-family: 'Archivo', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: white;
+  margin-bottom: 24px;
+}
+header p{
+  font-size: 16px;
+  line-height: 26px;
+  color: #42D3FF;
+}
+form{ /*Vai aplicar todas as configurações para o formulário como um todo*/
+  margin-top: 38px; /*margem superior do header para o formulário*/
+  background: #FAFAFC ;
+  border-radius: 8px 8px 0 0; /*radius(esq.cima/ dir.cima/ dir.inf/ esq.inf)*/
+  min-height: 300px; /*Definindo uma altura mínima pro form*/
+
+  padding: 64px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+fieldset{
+  border: none; /*Retirar as bordas do fieldset*/
+}
+.fieldset-wrapper{
+  display: flex; /*Usar para tirar o input lado a lado*/
+  flex-direction: column; /*Jogar o input para baixo do label*/
+  gap: 24px; /*Dar espaço entre o label e o input*/
+}
+fieldset legend{
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600px; /*Aqui estou usando para dizer que é semi-bold*/
+  font-size: 24px;
+  line-height: 34px;
+
+  width: 100%; /*Aqui estou estendendo a linha embaixo até 100% do formulario*/
+  border-bottom: 1px solid #E6E6F0;
+  padding-bottom: 16px; /*Aqui estou usando o preenchimento para dar um espaçamento na linha debaixo do titulo*/
+}
+.input-wrapper{ /*Estou estilizando o primeiro input*/
+  display: flex;
+  flex-direction: column;
+}
+#event-title{ /*Estou colocando o input embaixo*/
+  width: 100%;
+}
+.input-wrapper label, /*Estou estilizando todo o input e checkbox simultaneamente*/
+.checkbox-wrapper label{ 
+  font-size: 14px;
+  line-height: 24px;
+  color: #4E4958;
+
+  margin-bottom: 8px;
+}
+.input-wrapper label span{
+  margin-left: 5px; /*Usei isso para dar espaço entre o label e o span*/
+
+  font-size: 12px;
+  line-height: 20px;
+
+  color: #c1bccc; /*escureci um pouco a cor para ajudar no contraste*/
+}
+.input-wrapper label span:hover{
+  color: #6c6a71; /*Ajustei a cor de efeito para melhorar a percepção*/
+}
+.input-wrapper input,
+ .input-wrapper textarea,
+ .input-wrapper select{ /*Estilização dentro do campo de texto.*/
+background: #FAFAFC;
+
+border: 1px solid #E6E6F0;
+border-radius: 8px;
+
+height: 56px;
+padding: 0 24px; /* cima/embaixo - lados*/
+font-size: 16px;
+line-height: 26px; /*Define  a altura que o texto pode ocupar, é diferente do font-size*/
+color: #6c6a71;
+}
+#event-info{
+  padding: 0;
+  height: 168px;
+}
+.input-wrapper select{
+  font-size: 12px;
+  line-height: 19px;
+  padding: 0 12px;
+  height: 25px;
+  appearance: none; /*Aqui estou retirando a seta lateral do select
+  /*-webkit-appearance: none; Aqui estou tirando a seta lateral dos navegadores Chrome*/
+  
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_54)'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_54'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat; /*Estou dizendo que não quero que o background se repita*/
+  background-position: right 6px top 50%; /*Aqui estou colocando a imagem de fundo do lado direito*/
+}
+.col-3{
+  display: flex; /*é preciso declarar o display para ele ser mostrado lado a lado*/
+  gap: 16px;
+  line-height: 16px;
+  height: 65px;
+}
+.col-3 > div:nth-child(1){ /*Aqui eu consigo modificar só o 1º da DIV*/
+  width: 100%;
+}
+.checkbox-wrapper{
+  position: relative;
+}
+.checkbox-wrapper label{ /*Aqui estou estilizando o checkbox e alinhando com o "evento privado"*/
+  display: flex; /*Aqui estou colocando o checkbox e a frase lado a lado*/
+  align-items: center; /*Alinhando o texto com a caixa*/
+  gap: 6px;
+  margin: 0; /*O margin foi zerado pq atrapalhou no alinhamento*/
+}
+.checkbox-wrapper input{  /*Aqui estou colocando o checkbox original dentro do checkbox estilizado*/
+  position: absolute; /*Estou declarando que o checkbox original fique por cima*/
+  width: 24px;
+  height: 24px;
+  opacity: 0; /*Isso vai esconder o checkbox original*/
+  top: 0; /*Vai alinhar o checkbox original escondido com o checkbox estilizado*/
+  left: 0;
+}
+.checkbox-wrapper label::before{ /*Aqui estou estlizando o checkbox para usá-lo por baixo do original*/
+  content: '';
+  width: 24px;/*A mesma da caixa*/
+  height: 24px;/*A mesma da caixa*/
+  border: 1px solid #E6E6F0;
+  border-radius: 8px;
+}
+.checkbox-wrapper input:checked + label::before{ /*Definindo a imagem estlizada que vai aparecer quando o checkbox for selecionado*/
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 11.17L1.83 7L0.410004 8.41L6 14L18 2L16.59 0.589996L6 11.17Z' fill='%2342D3FF'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat; /*Não quero repetição da imagem*/
+  background-position: center;
+}
+.checkbox-wrapper input:focus + label::before{ /*aqui vai destacar o checkbox estlizado quando a navegação for por teclado*/
+   outline: 2px solid black;
+}
+footer{
+  background: #F0F0F4;
+  height: 136px;
+  display: flex;/*Vai esticar o footer*/
+  flex-direction: column; /*Vai mudar o eixo de ^ para <---> e vai esticar por causa do display*/
+  padding: 40px 64px; /*O preenchimento interno regulou o tamanho do button dentro do footer*/
+  margin-bottom: 100px;/*Vai empurrar o footer pra cima*/
+  border-top: 1px solid #D6D6D6; /*Criar linha separação do forms e footer*/
+  border-radius: 0 0 8px 8px; /*radius(esq.cima/ dir.cima/ dir.inf/ esq.inf)*/
+}
+footer .button{ /*Customização do button*/
+  height: 56px;
+  background: #05b454;
+  border-radius: 8px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  width: 100%;
+  color: #FFFFFF;
+  border: 0; /*tirei as bordas*/
+}
+footer .button:hover{
+  background: #05813d;
+}
+input:invalid{ /*Estou iluminando de vermelho os campos que forem required*/
+  border: 1px solid #FF1010;
+}

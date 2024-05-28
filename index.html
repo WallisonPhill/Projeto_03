@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crie seu evento</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page"> <!--Criei essa div para poder alinhar a caixa do forms ao centro-->
+      <header>
+        <h1>Crie e compartilhe o seu evento</h1>
+        <p>O primeiro passo, é preencher esse
+          formulário de inscrição.</p>
+      </header>
+
+      <form id="my-form"> <!--Aqui dentro vai todos os inputs do formulário, o id é pq o button está fora do form, preciso declarar para onde vai ser enviado.-->
+        <fieldset> <!--Aqui estou declarando que esse form vai ser um agrupamento de inputs-->
+          <div class="fieldset-wrapper"> 
+            <legend>Informações do evento</legend> <!--Aqui estou dando título ao formulário.-->
+
+            <div class="input-wrapper"><!--Wrapper significa algo encobrindo, encapsulando, pois estamos fazendo isso com os inputs-->
+              <label for="event-title">Título do Evento <span>(Mínimo 8 caracteres)</span></label>
+              <input type="text" id="event-title" 
+              required minlength="8" /><!--O minlength declara o mínimo de caracteres-->
+            </div>
+
+            <div class="input-wrapper"> <!--Comecei a replicar e editar campo a campo-->
+              <label for="event-link">Link do Evento <span>(Comece com https:\\)</span></label>
+              <input type="text" id="event-link" required/><!--O id tem que ser o mesmo do for-->
+            </div>
+
+            <div class="input-wrapper"> 
+              <label for="event-whatsapp">Whatsapp para contato<span>(Somente números)</span></label>
+              <input type="number" id="event-whatsapp" required/><!--O required vai declarar que o preenchimento é obrigatório-->
+            </div>
+
+            <div class="input-wrapper">
+              <label for="event-info">Informações extras</label>
+              <textarea id="event-info"></textarea>
+            </div>
+            <div class="input-wrapper">
+              <label for="event-category">Categoria</label>
+              <select id="event-category"> <!--O select serve para dar opções ao usuário-->
+                <option value="live">Ao vivo</option> <!--As opções ficam dentro do option-->
+                <option value="podcast">Podcast</option>
+                <option value="mentorship">Mentoria</option>
+              </select>
+            </div>
+          </div>  
+        </fieldset>
+
+        <fieldset> <!--Criando um novo grupamento de Forms-->
+          <div class="fieldset-wrapper">
+              <legend>Privacidade do evento</legend>
+
+              <div class="input-wrapper">
+                <label for="event-email">E-mail do Administrador <span>(digite um E-mail válido)</span></label>
+                <input type="text" id="event-email" required/>
+              </div>    
+
+              <div class="input-wrapper">
+                <label for="event-password">Senha de acesso para os participantes <span>(Mínimo 8 caracteres)</span></label>
+                <input type="password" 
+                 id="event-password" required minlength="8"/> <!--O type password vai esconder os caracteres digitados-->
+              </div>
+
+              <div class="checkbox-wrapper"> <!--O checkbox deve ser declarado aqui também-->
+                <input type="checkbox" id="event-private"/> <!--Estou inserindo um checkbox-->
+                <label for="event-private">Evento privado</label>
+              </div>
+
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="fieldset-wrapper">
+            <legend>Dia e hora</legend>
+
+            <div class="col-3"> <!--Estou dizendo que quero esses inputs em coluna por 3.-->
+              <div class="input-wrapper">
+                <label for="event-date">Data</label>
+                <input type="date" id="event-date" required/>
+              </div>    
+    
+              <div class="input-wrapper">
+                <label for="event-beginning">Das</label>
+                <input type="time" id="event-beginning" required/>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="event-end">Até</label>
+                <input type="time" id="event-end" required/>
+              </div>
+           </div>   
+          </div>
+        </fieldset> 
+      
+      </form>
+      <footer> <!--coloquei fora para estilizar separado-->
+         <button class="button" form="my-form"> <!--O button precisa do my form para saber para onde enviar as info-->
+            Salvar evento
+          </button>
+      </footer>
+    </div>
+</body>
+</html>
